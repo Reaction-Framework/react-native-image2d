@@ -1,0 +1,20 @@
+{
+  "name": "react-native-camera",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Reaction-Framework/react-native-canvas.git"
+  },
+  "version": "0.0.1",
+  "description": "A Canvas component for React Native.",
+  "author": "Reaction Framework Team",
+  "nativePackage": true,
+  "keywords": [
+    "react-native",
+    "react",
+    "native",
+    "canvas",
+    "drawing",
+    "imaging",
+    "2d"
+  ]
+}
