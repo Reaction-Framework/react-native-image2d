@@ -2,12 +2,14 @@ package io.reactionframework.android.react.canvas;
 
 import android.graphics.Rect;
 import android.net.Uri;
+import android.util.Log;
 import com.facebook.react.bridge.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class DrawingContextModule extends ReactContextBaseJavaModule {
+    private static final String LOG_TAG = DrawingContextModule.class.getSimpleName();
     private static final String REACT_MODULE = "DrawingContextModule";
 
     private static Map<String, DrawingContext> mDrawingContexts;
@@ -104,17 +106,39 @@ public class DrawingContextModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void crop(ReadableMap options, Promise promise) {
-        DrawingContext drawingContext = getDrawingContext(options.getString("id"));
-        ReadableMap params = options.getMap("params");
+        try {
+            DrawingContext drawingContext = getDrawingContext(options.getString("id"));
+            ReadableMap params = options.getMap("params");
 
-        int left = params.getInt("left");
-        int top = params.getInt("top");
-        int right = drawingContext.getWidth() - params.getInt("right");
-        int bottom = drawingContext.getHeight() - params.getInt("bottom");
+            int left = params.getInt("left");
+            int top = params.getInt("top");
+            int right = drawingContext.getWidth() - params.getInt("right");
+            int bottom = drawingContext.getHeight() - params.getInt("bottom");
 
-        Rect cropRectangle = new Rect(left, top, right, bottom);
-        drawingContext.crop(cropRectangle);
-        promise.resolve(null);
+            Rect cropRectangle = new Rect(left, top, right, bottom);
+            drawingContext.crop(cropRectangle);
+            promise.resolve(null);
+        } catch(Exception e) {
+            Log.e(LOG_TAG, e.getMessage());
+            e.printStackTrace();
+            promise.reject("Err");
+        }
+    }
+
+    @ReactMethod
+    public void drawBorder(ReadableMap options, Promise promise) {
+        try {
+            DrawingContext drawingContext = getDrawingContext(options.getString("id"));
+            ReadableMap params = options.getMap("params");
+
+            Rect borderRectangle = new Rect(params.getInt("left"), params.getInt("top"), params.getInt("right"), params.getInt("bottom"));
+            drawingContext.drawBorder(borderRectangle);
+            promise.resolve(null);
+        } catch(Exception e) {
+            Log.e(LOG_TAG, e.getMessage());
+            e.printStackTrace();
+            promise.reject("Err");
+        }
     }
 
     @ReactMethod

@@ -48,6 +48,13 @@ export class DrawingContext {
         });
     }
 
+    async drawBorder(options) {
+        return DrawingContextModule.drawBorder({
+            id: this.contextId,
+            params: options
+        });
+    }
+
     async release() {
         return DrawingContextModule.release({
             id: this.contextId

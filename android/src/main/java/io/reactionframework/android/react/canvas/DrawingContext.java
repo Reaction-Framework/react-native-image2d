@@ -68,6 +68,31 @@ public class DrawingContext {
         mCanvas.setBitmap(mBitmap);
     }
 
+    public void drawBorder(Rect borderRectangle) {
+        Bitmap bitmap = mBitmap.copy(mBitmap.getConfig(), true);
+        mCanvas.setBitmap(null);
+        mBitmap.recycle();
+
+        mBitmap = Bitmap.createBitmap(
+                bitmap.getWidth() + borderRectangle.left + borderRectangle.right,
+                bitmap.getHeight() + borderRectangle.top + borderRectangle.bottom,
+                bitmap.getConfig());
+
+        // TODO borderColor as parameter
+        int borderColor = Color.RED;
+
+        mCanvas.setBitmap(mBitmap);
+        mCanvas.drawColor(borderColor);
+        mCanvas.drawBitmap(bitmap, null, new Rect(
+                borderRectangle.left,
+                borderRectangle.top,
+                bitmap.getWidth() + borderRectangle.left,
+                bitmap.getHeight() + borderRectangle.top
+        ), null);
+
+        bitmap.recycle();
+    }
+
     public void release() {
 
     }
@@ -79,7 +104,7 @@ public class DrawingContext {
             bitmap = tmp;
         }
 
-        mBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+        mBitmap = bitmap.copy(bitmap.getConfig(), true);
         bitmap.recycle();
         mCanvas = new Canvas(mBitmap);
 
