@@ -49,6 +49,10 @@ export class DrawingContext {
     }
 
     async drawBorder(options) {
+        if (!options.color) {
+            options.color = 'black';
+        }
+
         return DrawingContextModule.drawBorder({
             id: this.contextId,
             params: options

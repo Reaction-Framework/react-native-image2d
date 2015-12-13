@@ -23,12 +23,11 @@ public class DrawingContext {
     }
 
     public void create(Integer width, Integer height) {
-        if (width != null && height != null) {
-            createWithBitmap(Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888), null, null);
-            return;
+        if (width == null || height == null) {
+            throw new UnsupportedOperationException("Can not create DrawingContext. DrawingContext without image requires width and height.");
         }
 
-        mCanvas = new Canvas();
+        createWithBitmap(Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888), null, null);
     }
 
     public void createFromFileUrl(String url, Integer width, Integer height) {
@@ -44,11 +43,6 @@ public class DrawingContext {
     }
 
     public String getAsBase64String() {
-        /*Paint mPaint = new Paint();
-        mPaint.setColor(Color.RED);
-        mPaint.setStyle(Paint.Style.FILL);
-        mCanvas.drawRect(0, 0, 200, 200, mPaint);*/
-
         return ImageUtils.bitmapToString(mBitmap);
     }
 
@@ -68,7 +62,7 @@ public class DrawingContext {
         mCanvas.setBitmap(mBitmap);
     }
 
-    public void drawBorder(Rect borderRectangle) {
+    public void drawBorder(Rect borderRectangle, String borderColor) {
         Bitmap bitmap = mBitmap.copy(mBitmap.getConfig(), true);
         mCanvas.setBitmap(null);
         mBitmap.recycle();
@@ -78,11 +72,11 @@ public class DrawingContext {
                 bitmap.getHeight() + borderRectangle.top + borderRectangle.bottom,
                 bitmap.getConfig());
 
-        // TODO borderColor as parameter
-        int borderColor = Color.RED;
-
         mCanvas.setBitmap(mBitmap);
-        mCanvas.drawColor(borderColor);
+
+        int androidBorderColor = Color.parseColor(borderColor);
+        mCanvas.drawColor(androidBorderColor);
+
         mCanvas.drawBitmap(bitmap, null, new Rect(
                 borderRectangle.left,
                 borderRectangle.top,
@@ -94,7 +88,15 @@ public class DrawingContext {
     }
 
     public void release() {
+        if (mCanvas != null) {
+            mCanvas.setBitmap(null);
+            mCanvas = null;
+        }
 
+        if (mBitmap != null) {
+            mBitmap.recycle();
+            mBitmap = null;
+        }
     }
 
     private void createWithBitmap(Bitmap bitmap, Integer width, Integer height) {
@@ -107,7 +109,5 @@ public class DrawingContext {
         mBitmap = bitmap.copy(bitmap.getConfig(), true);
         bitmap.recycle();
         mCanvas = new Canvas(mBitmap);
-
-        // crop(new Rect(20,20,100,100));
     }
 }
