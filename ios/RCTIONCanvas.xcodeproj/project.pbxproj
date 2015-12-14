@@ -6,6 +6,10 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		ADDCAE6A1C1DE713007B9CF0 /* RCTIONDrawingContextModule.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDCAE691C1DE713007B9CF0 /* RCTIONDrawingContextModule.m */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		4107012D1ACB723B00C6AA39 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		4107012F1ACB723B00C6AA39 /* libRCTIONCanvas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTIONCanvas.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADDCAE691C1DE713007B9CF0 /* RCTIONDrawingContextModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTIONDrawingContextModule.m; sourceTree = "<group>"; };
+		ADDCAE6B1C1DE720007B9CF0 /* RCTIONDrawingContextModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTIONDrawingContextModule.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,8 @@
 		410701241ACB719800C6AA39 = {
 			isa = PBXGroup;
 			children = (
+				ADDCAE6B1C1DE720007B9CF0 /* RCTIONDrawingContextModule.h */,
+				ADDCAE691C1DE713007B9CF0 /* RCTIONDrawingContextModule.m */,
 				410701301ACB723B00C6AA39 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +111,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADDCAE6A1C1DE713007B9CF0 /* RCTIONDrawingContextModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +173,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RCTIONCanvas;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -206,7 +215,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RCTIONCanvas;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
