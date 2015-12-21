@@ -1,1 +1,1 @@
-# react-native-canvas
+# react-native-image2d
