@@ -23,7 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4107012F1ACB723B00C6AA39 /* libRCTIONCanvas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTIONCanvas.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4107012F1ACB723B00C6AA39 /* libRCTIONImage2D.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTIONImage2D.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDCAE691C1DE713007B9CF0 /* RCTIONDrawingContextModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTIONDrawingContextModule.m; sourceTree = "<group>"; };
 		ADDCAE6B1C1DE720007B9CF0 /* RCTIONDrawingContextModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTIONDrawingContextModule.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,7 +51,7 @@
 		410701301ACB723B00C6AA39 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4107012F1ACB723B00C6AA39 /* libRCTIONCanvas.a */,
+				4107012F1ACB723B00C6AA39 /* libRCTIONImage2D.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,9 +59,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4107012E1ACB723B00C6AA39 /* RCTIONCanvas */ = {
+		4107012E1ACB723B00C6AA39 /* RCTIONImage2D */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 410701411ACB723B00C6AA39 /* Build configuration list for PBXNativeTarget "RCTIONCanvas" */;
+			buildConfigurationList = 410701411ACB723B00C6AA39 /* Build configuration list for PBXNativeTarget "RCTIONImage2D" */;
 			buildPhases = (
 				4107012B1ACB723B00C6AA39 /* Sources */,
 				4107012C1ACB723B00C6AA39 /* Frameworks */,
@@ -71,9 +71,9 @@
 			);
 			dependencies = (
 			);
-			name = RCTIONCanvas;
+			name = RCTIONImage2D;
 			productName = RCTCamera;
-			productReference = 4107012F1ACB723B00C6AA39 /* libRCTIONCanvas.a */;
+			productReference = 4107012F1ACB723B00C6AA39 /* libRCTIONImage2D.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -89,7 +89,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 410701281ACB719800C6AA39 /* Build configuration list for PBXProject "RCTIONCanvas" */;
+			buildConfigurationList = 410701281ACB719800C6AA39 /* Build configuration list for PBXProject "RCTIONImage2D" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -101,7 +101,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4107012E1ACB723B00C6AA39 /* RCTIONCanvas */,
+				4107012E1ACB723B00C6AA39 /* RCTIONImage2D */,
 			);
 		};
 /* End PBXProject section */
@@ -173,7 +173,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = RCTIONCanvas;
+				PRODUCT_NAME = RCTIONImage2D;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -215,7 +215,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = RCTIONCanvas;
+				PRODUCT_NAME = RCTIONImage2D;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
@@ -225,7 +225,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		410701281ACB719800C6AA39 /* Build configuration list for PBXProject "RCTIONCanvas" */ = {
+		410701281ACB719800C6AA39 /* Build configuration list for PBXProject "RCTIONImage2D" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				410701291ACB719800C6AA39 /* Debug */,
@@ -234,7 +234,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		410701411ACB723B00C6AA39 /* Build configuration list for PBXNativeTarget "RCTIONCanvas" */ = {
+		410701411ACB723B00C6AA39 /* Build configuration list for PBXNativeTarget "RCTIONImage2D" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				410701421ACB723B00C6AA39 /* Debug */,

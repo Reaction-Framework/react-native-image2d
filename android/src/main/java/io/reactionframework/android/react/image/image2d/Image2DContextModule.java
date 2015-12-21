@@ -1,4 +1,4 @@
-package io.reactionframework.android.react.canvas;
+package io.reactionframework.android.react.image.image2d;
 
 import android.graphics.Rect;
 import android.net.Uri;
@@ -8,19 +8,19 @@ import com.facebook.react.bridge.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DrawingContextModule extends ReactContextBaseJavaModule {
-    private static final String LOG_TAG = DrawingContextModule.class.getSimpleName();
-    private static final String REACT_MODULE = "DrawingContextModule";
+public class Image2DContextModule extends ReactContextBaseJavaModule {
+    private static final String LOG_TAG = Image2DContextModule.class.getSimpleName();
+    private static final String REACT_MODULE = "Image2DContextModule";
 
-    private static Map<String, DrawingContext> mDrawingContexts;
+    private static Map<String, Image2DContext> mImage2DContexts;
 
-    private static Map<String, DrawingContext> getDrawingContexts() {
-        return mDrawingContexts == null ? (mDrawingContexts = new HashMap<>()) : mDrawingContexts;
+    private static Map<String, Image2DContext> getImage2DContexts() {
+        return mImage2DContexts == null ? (mImage2DContexts = new HashMap<>()) : mImage2DContexts;
     }
 
     private final ReactApplicationContext mContext;
 
-    public DrawingContextModule(ReactApplicationContext reactContext) {
+    public Image2DContextModule(ReactApplicationContext reactContext) {
         super(reactContext);
         mContext = reactContext;
     }
@@ -30,20 +30,20 @@ public class DrawingContextModule extends ReactContextBaseJavaModule {
         return REACT_MODULE;
     }
 
-    private DrawingContext createDrawingContext() {
-        DrawingContext context = new DrawingContext(mContext);
-        getDrawingContexts().put(context.getId(), context);
+    private Image2DContext createImage2DContext() {
+        Image2DContext context = new Image2DContext(mContext);
+        getImage2DContexts().put(context.getId(), context);
         return context;
     }
 
-    private DrawingContext getDrawingContext(String id) {
-        return getDrawingContexts().get(id);
+    private Image2DContext getImage2DContext(String id) {
+        return getImage2DContexts().get(id);
     }
 
-    private void releaseDrawingContext(String id) {
-        DrawingContext context = getDrawingContext(id);
+    private void releaseImage2DContext(String id) {
+        Image2DContext context = getImage2DContext(id);
         context.release();
-        getDrawingContexts().remove(id);
+        getImage2DContexts().remove(id);
     }
 
     private void rejectWithException(Promise promise, Throwable exception) {
@@ -54,7 +54,7 @@ public class DrawingContextModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void create(ReadableMap options, Promise promise) {
-        DrawingContext context = createDrawingContext();
+        Image2DContext context = createImage2DContext();
 
         try {
             Integer width = null;
@@ -92,7 +92,7 @@ public class DrawingContextModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void save(ReadableMap options, Promise promise) {
         try {
-            Uri fileUrl = getDrawingContext(options.getString("id")).save(options.getMap("params").getString("fileName"));
+            Uri fileUrl = getImage2DContext(options.getString("id")).save(options.getMap("params").getString("fileName"));
 
             if (fileUrl == null) {
                 promise.reject("err");
@@ -108,7 +108,7 @@ public class DrawingContextModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void getAsBase64String(ReadableMap options, Promise promise) {
         try {
-            promise.resolve(getDrawingContext(options.getString("id")).getAsBase64String());
+            promise.resolve(getImage2DContext(options.getString("id")).getAsBase64String());
         } catch (Exception e) {
             rejectWithException(promise, e);
         }
@@ -117,7 +117,7 @@ public class DrawingContextModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void getWidth(ReadableMap options, Promise promise) {
         try {
-            promise.resolve(getDrawingContext(options.getString("id")).getWidth());
+            promise.resolve(getImage2DContext(options.getString("id")).getWidth());
         } catch (Exception e) {
             rejectWithException(promise, e);
         }
@@ -126,7 +126,7 @@ public class DrawingContextModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void getHeight(ReadableMap options, Promise promise) {
         try {
-            promise.resolve(getDrawingContext(options.getString("id")).getHeight());
+            promise.resolve(getImage2DContext(options.getString("id")).getHeight());
         } catch (Exception e) {
             rejectWithException(promise, e);
         }
@@ -135,14 +135,14 @@ public class DrawingContextModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void crop(ReadableMap options, Promise promise) {
         try {
-            DrawingContext drawingContext = getDrawingContext(options.getString("id"));
+            Image2DContext image2DContext = getImage2DContext(options.getString("id"));
             ReadableMap params = options.getMap("params");
 
-            drawingContext.crop(new Rect(
+            image2DContext.crop(new Rect(
                     params.getInt("left"),
                     params.getInt("top"),
-                    drawingContext.getWidth() - params.getInt("right"),
-                    drawingContext.getHeight() - params.getInt("bottom")
+                    image2DContext.getWidth() - params.getInt("right"),
+                    image2DContext.getHeight() - params.getInt("bottom")
             ));
 
             promise.resolve(null);
@@ -154,12 +154,12 @@ public class DrawingContextModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void drawBorder(ReadableMap options, Promise promise) {
         try {
-            DrawingContext drawingContext = getDrawingContext(options.getString("id"));
+            Image2DContext image2DContext = getImage2DContext(options.getString("id"));
             ReadableMap params = options.getMap("params");
 
             String borderColor = params.getString("color");
 
-            drawingContext.drawBorder(new Rect(
+            image2DContext.drawBorder(new Rect(
                     params.getInt("left"),
                     params.getInt("top"),
                     params.getInt("right"),
@@ -174,7 +174,7 @@ public class DrawingContextModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void release(ReadableMap options, Promise promise) {
-        releaseDrawingContext(options.getString("id"));
+        releaseImage2DContext(options.getString("id"));
         promise.resolve(null);
     }
 }

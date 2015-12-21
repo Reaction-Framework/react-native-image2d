@@ -35,6 +35,6 @@ android {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:0.16.+'
+    compile "com.facebook.react:react-native:0.17.+"
     compile project(':io.reactionframework.android.image')
 }

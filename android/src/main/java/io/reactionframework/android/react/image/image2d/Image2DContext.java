@@ -1,4 +1,4 @@
-package io.reactionframework.android.react.canvas;
+package io.reactionframework.android.react.image.image2d;
 
 import android.content.Context;
 import android.graphics.*;
@@ -7,13 +7,13 @@ import io.reactionframework.android.image.ImageUtils;
 
 import java.util.UUID;
 
-public class DrawingContext {
+public class Image2DContext {
     private final String mId;
     private final Context mContext;
     private Bitmap mBitmap;
     private Canvas mCanvas;
 
-    public DrawingContext(Context context) {
+    public Image2DContext(Context context) {
         mId = UUID.randomUUID().toString();
         mContext = context;
     }
@@ -24,7 +24,7 @@ public class DrawingContext {
 
     public void create(Integer width, Integer height) {
         if (width == null || height == null) {
-            throw new UnsupportedOperationException("Can not create DrawingContext. DrawingContext without image requires width and height.");
+            throw new UnsupportedOperationException("Can not create Image2DContext. Image2DContext without image requires width and height.");
         }
 
         createWithBitmap(Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888), null, null);
@@ -35,15 +35,15 @@ public class DrawingContext {
     }
 
     public void createFromBase64String(String base64, Integer width, Integer height) {
-        createWithBitmap(ImageUtils.bitmapFromString(base64), width, height);
+        createWithBitmap(ImageUtils.bitmapFromByteArray(ImageUtils.dataFromBase64String(base64)), width, height);
     }
 
     public Uri save(String fileName) {
-        return ImageUtils.storePhoto(mContext, mBitmap, fileName);
+        return ImageUtils.storeInPictures(mContext, ImageUtils.bitmapToByteArray(mBitmap), fileName);
     }
 
     public String getAsBase64String() {
-        return ImageUtils.bitmapToString(mBitmap);
+        return ImageUtils.dataToBase64String(ImageUtils.bitmapToByteArray(mBitmap));
     }
 
     public int getWidth() {

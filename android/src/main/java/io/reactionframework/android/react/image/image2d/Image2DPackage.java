@@ -1,6 +1,5 @@
-package io.reactionframework.android.react.canvas;
+package io.reactionframework.android.react.image.image2d;
 
-import android.app.Activity;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;
@@ -11,15 +10,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CanvasPackage implements ReactPackage {
-    public CanvasPackage(Activity mainActivity) {
-
-    }
-
+public class Image2DPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        List<NativeModule> modules = new ArrayList<NativeModule>();
-        modules.add(new DrawingContextModule(reactContext));
+        List<NativeModule> modules = new ArrayList<>();
+        modules.add(new Image2DContextModule(reactContext));
         return modules;
     }
 
@@ -30,7 +25,6 @@ public class CanvasPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        List<ViewManager> viewManagers = new ArrayList<ViewManager>();
-        return viewManagers;
+        return new ArrayList<>();
     }
 }

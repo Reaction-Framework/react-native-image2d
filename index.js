@@ -2,12 +2,12 @@
 
 import React, { requireNativeComponent, PropTypes, NativeModules, View } from 'react-native';
 
-const DrawingContextModule = NativeModules.DrawingContextModule;
+const Image2DContextModule = NativeModules.Image2DContextModule;
 
-export class DrawingContext {
+export class Image2DContext {
     static async create(options) {
-        let id = await DrawingContextModule.create(options);
-        return new DrawingContext(id);
+        let id = await Image2DContextModule.create(options);
+        return new Image2DContext(id);
     }
 
     constructor(id) {
@@ -15,14 +15,14 @@ export class DrawingContext {
     }
 
     async save(options) {
-        return DrawingContextModule.save({
+        return Image2DContextModule.save({
             id: this.contextId,
             params: options
         });
     }
 
     async getAsBase64String() {
-        return DrawingContextModule.getAsBase64String({
+        return Image2DContextModule.getAsBase64String({
             id: this.contextId
         });
     }
@@ -30,11 +30,11 @@ export class DrawingContext {
     async getSize() {
         let size = {};
 
-        size.width = await DrawingContextModule.getWidth({
+        size.width = await Image2DContextModule.getWidth({
             id: this.contextId
         });
 
-        size.height = await DrawingContextModule.getHeight({
+        size.height = await Image2DContextModule.getHeight({
             id: this.contextId
         });
 
@@ -42,7 +42,7 @@ export class DrawingContext {
     }
 
     async crop(options) {
-        return DrawingContextModule.crop({
+        return Image2DContextModule.crop({
             id: this.contextId,
             params: options
         });
@@ -53,14 +53,14 @@ export class DrawingContext {
             options.color = 'black';
         }
 
-        return DrawingContextModule.drawBorder({
+        return Image2DContextModule.drawBorder({
             id: this.contextId,
             params: options
         });
     }
 
     async release() {
-        return DrawingContextModule.release({
+        return Image2DContextModule.release({
             id: this.contextId
         });
     }

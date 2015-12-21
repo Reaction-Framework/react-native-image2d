@@ -1,4 +1,3 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="io.reactionframework.android.react.canvas">
+<manifest package="io.reactionframework.android.react.image.image2d">
 
 </manifest>
