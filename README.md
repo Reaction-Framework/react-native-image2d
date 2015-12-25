@@ -1,6 +1,6 @@
 # react-native-image2d
 
-Image 2D processing module for React Native
+Image 2D processing module for React Native.
 
 ## Getting started
 
