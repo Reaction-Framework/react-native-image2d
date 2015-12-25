@@ -57,34 +57,29 @@ public class Image2DContextModule extends ReactContextBaseJavaModule {
         Image2DContext context = createImage2DContext();
 
         try {
-            Integer width = null;
-            Integer height = null;
-
-            if (options.hasKey("size")) {
-                ReadableMap imageSize = options.getMap("size");
-
-                if (imageSize.hasKey("width") && imageSize.hasKey("height")) {
-                    width = imageSize.getInt("width");
-                    height = imageSize.getInt("height");
-                }
+            if (!options.hasKey("maxWidth") || !options.hasKey("maxHeight")) {
+                throw new IllegalArgumentException("Image2DContext requires maxWidth and maxHeight arguments.");
             }
 
+            int maxWidth = options.getInt("maxWidth");
+            int maxHeight = options.getInt("maxHeight");
+
             if (options.hasKey("fileUrl")) {
-                context.createFromFileUrl(options.getString("fileUrl"), width, height);
+                context.createFromFileUrl(options.getString("fileUrl"), maxWidth, maxHeight);
                 promise.resolve(context.getId());
                 return;
             }
 
             if (options.hasKey("base64String")) {
-                context.createFromBase64String(options.getString("base64String"), width, height);
+                context.createFromBase64String(options.getString("base64String"), maxWidth, maxHeight);
                 promise.resolve(context.getId());
                 return;
             }
 
-            context.create(width, height);
-            promise.resolve(context.getId());
+            throw new IllegalArgumentException("Image2DContext requires fileUrl or base64String arguments.");
+
         } catch (Exception e) {
-            context.release();
+            releaseImage2DContext(context.getId());
             rejectWithException(promise, e);
         }
     }
@@ -95,8 +90,7 @@ public class Image2DContextModule extends ReactContextBaseJavaModule {
             Uri fileUrl = getImage2DContext(options.getString("id")).save(options.getMap("params").getString("fileName"));
 
             if (fileUrl == null) {
-                promise.reject("err");
-                return;
+                throw new RuntimeException("Image2DContext could not been saved.");
             }
 
             promise.resolve(fileUrl.toString());

@@ -22,20 +22,18 @@ public class Image2DContext {
         return mId;
     }
 
-    public void create(Integer width, Integer height) {
-        if (width == null || height == null) {
-            throw new UnsupportedOperationException("Can not create Image2DContext. Image2DContext without image requires width and height.");
-        }
-
-        createWithBitmap(Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888), null, null);
+    public void createFromFileUrl(String fileUrl, int maxWidth, int maxHeight) {
+        createFromBitmap(ImageUtils.bitmapFromFileUrl(fileUrl, maxWidth, maxHeight));
     }
 
-    public void createFromFileUrl(String url, Integer width, Integer height) {
-        createWithBitmap(BitmapFactory.decodeFile(url), width, height);
+    public void createFromBase64String(String base64, int maxWidth, int maxHeight) {
+        createFromBitmap(ImageUtils.bitmapFromByteArray(ImageUtils.dataFromBase64String(base64), maxWidth, maxHeight));
     }
 
-    public void createFromBase64String(String base64, Integer width, Integer height) {
-        createWithBitmap(ImageUtils.bitmapFromByteArray(ImageUtils.dataFromBase64String(base64)), width, height);
+    public void createFromBitmap(Bitmap bitmap) {
+        mBitmap = bitmap.copy(bitmap.getConfig(), true);
+        bitmap.recycle();
+        mCanvas = new Canvas(mBitmap);
     }
 
     public Uri save(String fileName) {
@@ -97,17 +95,5 @@ public class Image2DContext {
             mBitmap.recycle();
             mBitmap = null;
         }
-    }
-
-    private void createWithBitmap(Bitmap bitmap, Integer width, Integer height) {
-        if (width != null && height != null) {
-            Bitmap tmp = Bitmap.createScaledBitmap(bitmap, width, height, false);
-            bitmap.recycle();
-            bitmap = tmp;
-        }
-
-        mBitmap = bitmap.copy(bitmap.getConfig(), true);
-        bitmap.recycle();
-        mCanvas = new Canvas(mBitmap);
     }
 }
