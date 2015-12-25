@@ -238,6 +238,8 @@ Supported options:
  - `top` - Integer >= 0 border width on the top
  - `right` - Integer >= 0 border width on the right
  - `bottom` - Integer >= 0 border width on the bottom
+ - `color` - Color of the border, default is `black`
+     - [Values supported on Android](http://developer.android.com/reference/android/graphics/Color.html#parseColor(java.lang.String))
 
 Required options: `left`, `top`, `right`, `bottom`
 
