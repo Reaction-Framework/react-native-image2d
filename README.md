@@ -8,7 +8,11 @@ Image 2D processing module for React Native.
 
 ## iPhone setup 
 
-TODO
+* In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
+* Go to `node_modules` ➜ `react-native-image2d` and add `RCTIONImage2D.xcodeproj`
+* In XCode, in the project navigator, select your project. Add `libRCTIONImage2D.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
+* Click `RCTIONImage2D.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). In the `Search Paths` section, look for `Header Search Paths` and make sure it contains both `$(SRCROOT)/../../react-native/React` and `$(SRCROOT)/../../../React` - mark both as `recursive`.
+* Run your project (`Cmd+R`)
 
 ## Android setup 
 
@@ -239,13 +243,15 @@ Supported options:
  - `right` - Integer >= 0 border width on the right
  - `bottom` - Integer >= 0 border width on the bottom
  - `color` - Color of the border, default is `black`
-     - [Values supported on Android](http://developer.android.com/reference/android/graphics/Color.html#parseColor(java.lang.String))
+     - iOS supports:
+         - formats: #RGB, #ARGB, #RRGGBB, #AARRGGBB;
+         - names, [used from here](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIColor_Class/#//apple_ref/doc/uid/TP40006892-CH3-SW18): 'black', 'darkGray', 'lightGray', 'white', 'gray', 'red', 'green', 'blue', 'cyan', 'yellow', 'magenta', 'orange', 'purple', 'brown', 'clear'.
+     - Android supports as [stated here](http://developer.android.com/reference/android/graphics/Color.html#parseColor(java.lang.String)):
+         - formats: #RRGGBB, #AARRGGBB;
+         - names: 'red', 'blue', 'green', 'black', 'white', 'gray', 'cyan', 'magenta', 'yellow', 'lightgray', 'darkgray', 'grey', 'lightgrey', 'darkgrey', 'aqua', 'fuchsia', 'lime', 'maroon', 'navy', 'olive', 'purple', 'silver', 'teal'.
 
 Required options: `left`, `top`, `right`, `bottom`
 
 #### `async release()`
 
 Releses context. Context should not be reused after it is released.
-
-## Roadmap
- - Implement iOS
