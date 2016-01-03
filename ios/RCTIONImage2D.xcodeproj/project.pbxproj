@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ADDCAE6A1C1DE713007B9CF0 /* RCTIONDrawingContextModule.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDCAE691C1DE713007B9CF0 /* RCTIONDrawingContextModule.m */; };
+		AD58E66F1C2F24250063AC02 /* RCTIONImage2DContext.m in Sources */ = {isa = PBXBuildFile; fileRef = AD58E66E1C2F24250063AC02 /* RCTIONImage2DContext.m */; };
+		AD75ABA21C3594700018E223 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD75ABA11C3594700018E223 /* CoreGraphics.framework */; };
+		AD75ABB11C35B0400018E223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD75ABB01C35B0400018E223 /* UIKit.framework */; };
+		AD75ABB31C38598C0018E223 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD75ABB21C38598C0018E223 /* MobileCoreServices.framework */; };
+		AD75ABB51C38622A0018E223 /* UIColor+ParseColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AD75ABB41C38622A0018E223 /* UIColor+ParseColor.m */; };
+		ADDCAE6A1C1DE713007B9CF0 /* RCTIONImage2DContextModule.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDCAE691C1DE713007B9CF0 /* RCTIONImage2DContextModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,8 +29,15 @@
 
 /* Begin PBXFileReference section */
 		4107012F1ACB723B00C6AA39 /* libRCTIONImage2D.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTIONImage2D.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		ADDCAE691C1DE713007B9CF0 /* RCTIONDrawingContextModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTIONDrawingContextModule.m; sourceTree = "<group>"; };
-		ADDCAE6B1C1DE720007B9CF0 /* RCTIONDrawingContextModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTIONDrawingContextModule.h; sourceTree = "<group>"; };
+		AD58E66D1C2F24250063AC02 /* RCTIONImage2DContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTIONImage2DContext.h; sourceTree = "<group>"; };
+		AD58E66E1C2F24250063AC02 /* RCTIONImage2DContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTIONImage2DContext.m; sourceTree = "<group>"; };
+		AD75ABA11C3594700018E223 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		AD75ABB01C35B0400018E223 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		AD75ABB21C38598C0018E223 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		AD75ABB41C38622A0018E223 /* UIColor+ParseColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ParseColor.m"; sourceTree = "<group>"; };
+		AD75ABB61C38624A0018E223 /* UIColor+ParseColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+ParseColor.h"; sourceTree = "<group>"; };
+		ADDCAE691C1DE713007B9CF0 /* RCTIONImage2DContextModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTIONImage2DContextModule.m; sourceTree = "<group>"; };
+		ADDCAE6B1C1DE720007B9CF0 /* RCTIONImage2DContextModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTIONImage2DContextModule.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +45,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD75ABB31C38598C0018E223 /* MobileCoreServices.framework in Frameworks */,
+				AD75ABB11C35B0400018E223 /* UIKit.framework in Frameworks */,
+				AD75ABA21C3594700018E223 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,8 +57,15 @@
 		410701241ACB719800C6AA39 = {
 			isa = PBXGroup;
 			children = (
-				ADDCAE6B1C1DE720007B9CF0 /* RCTIONDrawingContextModule.h */,
-				ADDCAE691C1DE713007B9CF0 /* RCTIONDrawingContextModule.m */,
+				AD75ABB21C38598C0018E223 /* MobileCoreServices.framework */,
+				AD75ABB01C35B0400018E223 /* UIKit.framework */,
+				AD75ABA11C3594700018E223 /* CoreGraphics.framework */,
+				AD58E66D1C2F24250063AC02 /* RCTIONImage2DContext.h */,
+				AD58E66E1C2F24250063AC02 /* RCTIONImage2DContext.m */,
+				ADDCAE6B1C1DE720007B9CF0 /* RCTIONImage2DContextModule.h */,
+				ADDCAE691C1DE713007B9CF0 /* RCTIONImage2DContextModule.m */,
+				AD75ABB61C38624A0018E223 /* UIColor+ParseColor.h */,
+				AD75ABB41C38622A0018E223 /* UIColor+ParseColor.m */,
 				410701301ACB723B00C6AA39 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,7 +133,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADDCAE6A1C1DE713007B9CF0 /* RCTIONDrawingContextModule.m in Sources */,
+				AD58E66F1C2F24250063AC02 /* RCTIONImage2DContext.m in Sources */,
+				AD75ABB51C38622A0018E223 /* UIColor+ParseColor.m in Sources */,
+				ADDCAE6A1C1DE713007B9CF0 /* RCTIONImage2DContextModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
