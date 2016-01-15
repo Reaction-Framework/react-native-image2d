@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Image2DContextModule extends ReactContextBaseJavaModule {
     private static final String LOG_TAG = Image2DContextModule.class.getSimpleName();
-    private static final String REACT_MODULE = "Image2DContextModule";
+    private static final String REACT_MODULE = "RCTIONImage2DContextModule";
 
     private static Map<String, Image2DContext> mImage2DContexts;
 
