@@ -1,8 +1,8 @@
 'use strict';
 
-import React, { requireNativeComponent, PropTypes, NativeModules, View } from 'react-native';
+import { NativeModules } from 'react-native';
 
-const Image2DContextModule = NativeModules.Image2DContextModule;
+const Image2DContextModule = NativeModules.IONImage2DContextModule;
 
 export class Image2DContext {
     static async create(options) {
