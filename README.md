@@ -8,7 +8,7 @@ Image 2D processing module for React Native.
 
 ## iPhone setup 
 
-* In XCode, add contents of `ios` directory to your main project
+* In XCode, add contents of `ios` directory to your app project
 
 * [Create Objective-C bridging header](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html#//apple_ref/doc/uid/TP40014216-CH10-ID156) if not already created, and add missing headers:
 ```
