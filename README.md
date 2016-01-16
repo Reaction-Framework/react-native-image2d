@@ -8,11 +8,14 @@ Image 2D processing module for React Native.
 
 ## iPhone setup 
 
-* In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-* Go to `node_modules` ➜ `react-native-image2d` and add `RCTIONImage2D.xcodeproj`
-* In XCode, in the project navigator, select your project. Add `libRCTIONImage2D.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-* Click `RCTIONImage2D.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). In the `Search Paths` section, look for `Header Search Paths` and make sure it contains both `$(SRCROOT)/../../react-native/React` and `$(SRCROOT)/../../../React` - mark both as `recursive`.
-* Run your project (`Cmd+R`)
+* In XCode, add contents of `ios` directory to your main project
+
+* [Create Objective-C bridging header](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html#//apple_ref/doc/uid/TP40014216-CH10-ID156) if not already created, and add missing headers:
+```
+...
+#import "RCTBridgeModule.h"
+#import "RCTUtils.h"
+```
 
 ## Android setup 
 
