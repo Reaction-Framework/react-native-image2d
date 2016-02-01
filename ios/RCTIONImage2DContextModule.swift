@@ -32,7 +32,8 @@ class RCTIONImage2DContextModule: NSObject {
   }
   
   private func reject(reject: RCTPromiseRejectBlock, withMessage message: String) {
-    reject(RCTErrorWithMessage(message))
+    let error = RCTErrorWithMessage(message)
+    reject(String(error.code), error.localizedDescription, error)
   }
   
   private func getParams(options: NSDictionary) -> NSDictionary {
@@ -119,6 +120,8 @@ class RCTIONImage2DContextModule: NSObject {
       )
       
       resolve(nil)
+    } catch UIColor.ColorParseError.InvalidColorString(let message) {
+      self.reject(reject, withMessage: message)
     } catch let error as NSError {
       self.reject(reject, withError: error)
     }

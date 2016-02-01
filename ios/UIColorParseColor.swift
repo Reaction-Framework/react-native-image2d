@@ -65,7 +65,7 @@ extension UIColor {
       }
     }
     
-    throw ColorParseError.InvalidColorString(colorString)
+    throw ColorParseError.InvalidColorString("Could not parse color from string: " + colorString + ".")
   }
   
   enum ColorParseError: ErrorType {
